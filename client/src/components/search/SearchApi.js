@@ -5,82 +5,93 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 
 
 export const SearchApi = async (location, setLatLng) => {
-  try {
-    const response = await axios.get("/api/yelp", {
-      params: {
-        location: location,
-        categories: "streetvendors",
-      },
-    });
-    console.log(response.data);
-    const yelpBusinesses = response.data.businesses;
-    const latLngResponse = await getLatLng(location);
-    console.log(latLngResponse);
-    setLatLng(latLngResponse);
-    const firestoreBusinesses = await SearchFirestore(latLngResponse);
+    try {
+        // GET request to yelp api through server.js
+        const response = await axios.get("/api/yelp", {
+        params: {
+            location: location,
+            categories: "streetvendors",
+        },
+        });
+        console.log(response.data);
+        // response from yelp stored as objects in an array
+        const yelpBusinesses = response.data.businesses;
 
-    const BusinessResultsArray = [...firestoreBusinesses,...yelpBusinesses];
+        // get latlng for the location input and pass to SearchFirestore function
+        const latLngResponse = await getLatLng(location);
+        console.log(latLngResponse);
+        setLatLng(latLngResponse);
 
+        // return from SearchFirestore stored as objects in array
+        const firestoreBusinesses = await SearchFirestore(latLngResponse);
+
+        // combine objects into one array and return
+        const BusinessResultsArray = [...firestoreBusinesses,...yelpBusinesses];
     return { businesses: BusinessResultsArray }
 
-  } catch (err) {
+} catch (err) {
     console.error(err);
     throw err;
-  }
+}
 };
 
+    // uses Google API to convert city to lat lng coordinates
 export const getLatLng = async (address) => {
-  const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
-  const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${apiKey}`;
-  const response = await axios.get(url);
-  const latLng = response.data.results[0].geometry.location;
-  return latLng;
+    const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
+    const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${apiKey}`;
+    const response = await axios.get(url);
+    const latLng = response.data.results[0].geometry.location;
+    return latLng;
 };
+
 
 const SearchFirestore = async (latLng) => {
     try {
-      const lat = JSON.stringify(latLng.lat);
-      const lng = JSON.stringify(latLng.lng);
-      console.log("firebase test:" + parseFloat(lat));
-      console.log("firebase test:" + (parseFloat(lat) - 0.08));
-  
-      const usersRef = collection(db, "users");
-      const latQuery = query(
+    const lat = JSON.stringify(latLng.lat);
+    const lng = JSON.stringify(latLng.lng);
+
+    // Query to databse, returns if business lat is +/- 0.04 (~5 miles) from location user input
+    const usersRef = collection(db, "users");
+    const latQuery = query(
         usersRef,
-        where("business.location.latitude", ">=", parseFloat(lat) - 0.08),
-        where("business.location.latitude", "<=", parseFloat(lat) + 0.08),
-      );
-      const latQuerySnapshot = await getDocs(latQuery);
-      const latBusinessArray = [];
-      latQuerySnapshot.forEach((doc) => {
+        where("business.location.latitude", ">=", parseFloat(lat) - 0.04),
+        where("business.location.latitude", "<=", parseFloat(lat) + 0.04),
+    );
+    const latQuerySnapshot = await getDocs(latQuery);
+
+    // Stores results in an array
+    const latBusinessArray = [];
+    latQuerySnapshot.forEach((doc) => {
         const business = doc.data().business;
         latBusinessArray.push(business);
-      });
-      console.log("firebase lat businesses:" + JSON.stringify(latBusinessArray));
-  
-      const lngQuery = query(
+    });
+    console.log("firebase lat businesses:" + JSON.stringify(latBusinessArray));
+
+    // Repeat for lng
+    const lngQuery = query(
         usersRef,
-        where("business.location.longitude", ">=", parseFloat(lng) - 0.08),
-        where("business.location.longitude", "<=", parseFloat(lng) + 0.08),
-      );
-      const lngQuerySnapshot = await getDocs(lngQuery);
-      const lngBusinessArray = [];
-      lngQuerySnapshot.forEach((doc) => {
+        where("business.location.longitude", ">=", parseFloat(lng) - 0.04),
+        where("business.location.longitude", "<=", parseFloat(lng) + 0.04),
+    );
+    const lngQuerySnapshot = await getDocs(lngQuery);
+    const lngBusinessArray = [];
+    lngQuerySnapshot.forEach((doc) => {
         const business = doc.data().business;
         lngBusinessArray.push(business);
-      });
-      console.log("firebase lng businesses:" + JSON.stringify(lngBusinessArray));
+    });
+    console.log("firebase lng businesses:" + JSON.stringify(lngBusinessArray));
 
-      const firestoreBusinesses = latBusinessArray.filter((latBusiness) =>
+    // Filter and combine results such that firestoreBusinesses contains businesses once
+    const firestoreBusinesses = latBusinessArray.filter((latBusiness) =>
         lngBusinessArray.some((lngBusiness) => latBusiness.businessName === lngBusiness.businessName)
         );
 
-      console.log("firebase businesses:" + JSON.stringify(firestoreBusinesses));
+    console.log("firebase businesses:" + JSON.stringify(firestoreBusinesses));
 
-  
-      return firestoreBusinesses;
+    // returns to Search api function
+    return firestoreBusinesses;
     } catch (error) {
-      console.error(error);
-      throw error;
+    console.error(error);
+    throw error;
     }
-  };
+};
