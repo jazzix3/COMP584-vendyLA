@@ -1,18 +1,40 @@
 #map-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #main-content{
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .location .combobox-input {
-    width: 100%;
-  }
+  width: 100%;
+}
 
-  .map-container {
-    text-align: left;
-    margin: 30px;
-  }
+.map-container {
+  text-align: left;
+  margin: 30px;
+}
+
+.row-equal-height {
+  display: flex;
+  height: 400px;
+}
+
+.section-left {
+overflow: scroll;
+height:400px;
+}
+
+.row-equal-height {
+display: flex;
+}
+
+.about-card {
+transition: all 0.2s ease-in-out;
+}
+
+.about-card:hover {
+transform: translateY(-5px);
+}

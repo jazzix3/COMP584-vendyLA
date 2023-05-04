@@ -11,7 +11,6 @@ import Reviews from "./pages/Reviews";
 import Dashboard from "./pages/Dashboard";
 import EditProfile from './pages/EditProfile';
 import EditBusiness from './pages/EditBusiness';
-import YelpSearch from './pages/YelpSearch';
 
 
 function App() {
@@ -24,7 +23,6 @@ function App() {
                     <Route path="/Login" element={<Login />} />
                     <Route path="/Signup" element={<Signup />} />
                     <Route path="/Reviews" element={<Reviews />} />
-                    <Route path="/Yelpsearch" element={<YelpSearch />} />
                     <Route path="/Dashboard" 
                         element={<PrivateRoute><Dashboard /></PrivateRoute>} />
                     <Route path="/EditProfile/:userId" 
