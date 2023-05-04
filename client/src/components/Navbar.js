@@ -15,25 +15,25 @@ function TopNav() {
     useEffect(() => {
         const currentUser = auth.currentUser;
         if (currentUser) {
-            const userDocRef = doc(db, "users", currentUser.uid);
-            getDoc(userDocRef)
-                .then((doc) => {
-                    if (doc.exists()) {
-                        const data = doc.data();
-                        setCurrentUid(currentUser.uid);
-                        setFirstName(data.firstName);
-                        setLastName(data.lastName);
-                        setUserProfile(data.userProfile);
-                    } else {
-                        console.log("User not found");
-                    }
-
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
+          const userDocRef = doc(db, "users", currentUser.uid);
+          getDoc(userDocRef)
+            .then((doc) => {
+              if (doc.exists()) {
+                const data = doc.data();
+                setCurrentUid(currentUser.uid);
+                setFirstName(data.firstName);
+                setLastName(data.lastName);
+                setUserProfile(data.userProfile);
+              } else {
+                console.log("User not found");
+              }
+            })
+            .catch((error) => {
+              console.log(error);
+            });
         }
-    }, []);
+      }, [authUser]);
+      
 
     return (
         <Navbar bg="light" expand="sm" style={{ display: "flex", alignItems: "center" }}>
