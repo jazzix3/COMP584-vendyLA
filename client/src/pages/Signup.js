@@ -48,7 +48,7 @@ const Signup = () => {
                         email: inputEmail,
                         userProfile: userProfile,
                         business: {
-                            businessName: "",
+                            name: "",
                             address: "",
                             phone: "",
                             website: "",

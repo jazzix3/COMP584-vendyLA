@@ -33,7 +33,7 @@ const Dashboard = () => {
                         setLastName(data.lastName);
                         setEmail(data.email);
                         setProfile(data.userProfile);
-                        setBusinessName(data.business.businessName)
+                        setBusinessName(data.business.name)
                         setAddress(data.business.location.address)
                         setLatitude(data.business.location.latitude)
                         setLongitude(data.business.location.longitude)
