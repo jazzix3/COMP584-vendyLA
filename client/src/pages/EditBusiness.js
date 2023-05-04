@@ -27,7 +27,7 @@ const EditBusiness = () => {
 
             if (userDocSnap.exists()) {
                 const data = userDocSnap.data();
-                setBusinessName(data.business.businessName);
+                setBusinessName(data.business.name);
                 setPhone(data.business.phone);
             }
         } catch (error) {
@@ -44,7 +44,7 @@ const EditBusiness = () => {
         if (phoneIsValid) {
             const userDocRef = doc(db, "users", userId);
             updateDoc(userDocRef, {
-                "business.businessName": inputBusinessName,
+                "business.name": inputBusinessName,
                 "business.phone": inputPhone,
                 "business.location": selectedLocation
             }).then(() => {
