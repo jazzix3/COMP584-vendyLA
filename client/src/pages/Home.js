@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import TopNav from "../components/Navbar";
 import Map from "../components/Map";
 import SearchResults from "../components/search/SearchResults";
-import Search from "../components/search/Search";
+import Searchbar from "../components/search/Searchbar";
 import axios from "axios";
 
 
@@ -29,13 +29,11 @@ const Home = () => {
         <TopNav />
         
         <div className="container rounded p-2 main-content align-top mb-3" id="main-content">
-        <Search onSearch={handleSearch} />
+          <Searchbar onSearch={handleSearch} />
             <div className = "row">
-                <section className=" col-12 col-lg-4 col-md-5 col-sm-12 h-25 p-3 mt-3 mb-3" id="search-results">
-                
-                <SearchResults businesses={businesses} />
-                
-                </section>
+            <section className="col-12 col-lg-4 col-md-5 col-sm-12 p-3 mt-3 mb-3" id="search-results" style={{ height: '600px', overflow: 'scroll' }}>
+  <SearchResults businesses={businesses} />
+</section>
                 <div className=" col-12 col-lg-8 col-md-7 col-sm-12 mt-3 mb-3 p-3" id="map-container">
                     <Map />
                 </div>    
