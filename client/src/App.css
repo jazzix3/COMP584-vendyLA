@@ -45,15 +45,25 @@ transform: translateY(-5px);
   letter-spacing: -.001em;
 }
 
-.info-col, .review-col{
+.info-col, .review-col, .map-col{
   background-color: #ffffff;
 }
 
 .map-col{
   border-left: 1px solid lightgray;
-  background-color: #ffffff;
 }
 
 .dash-container{
   background-color: rgba(var(--bs-light-rgb));
+}
+
+.login-container, .signup-container{
+  overflow:hidden;
+  min-width: 300px;
+  box-shadow: 9px 18px 28px -1px rgba(0,0,0,0.20);
+  padding: 20px;
+}
+
+.login-container h1, .signup-container h1{
+  font-weight: bold;
 }
