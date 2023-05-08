@@ -19,6 +19,8 @@ const Dashboard = () => {
     const [latitude, setLatitude] = useState("");
     const [longitude, setLongitude] = useState("");
     const [phone, setPhone] = useState("");
+    const [businessImage, setBusinessImage] = useState("");
+
 
     useEffect(() => {
         const currentUser = auth.currentUser;
@@ -38,10 +40,11 @@ const Dashboard = () => {
                         setLatitude(data.business.location.latitude)
                         setLongitude(data.business.location.longitude)
                         setPhone(data.business.phone)
+                        setBusinessImage(data.business.businessImage)
                     } else {
                         console.log("User not found");
                     }
-                    
+
                 })
                 .catch((error) => {
                     console.log(error);
@@ -62,6 +65,7 @@ const Dashboard = () => {
                 <p>Welcome! This is where vendors can view their info.</p>
 
                 <div class="row">
+
                 {/* info column*/}
                 <div class="col-12 col-lg-3 col-md-6 col-sm-12 mt-5 order-md-1 info-col" id="user-profile">
                     <h1 className = "dash-heading">Profile</h1>
@@ -92,15 +96,13 @@ const Dashboard = () => {
                     <p><strong>Location: </strong>{address}</p>
                     <div className="map-container">
                         <MapDashboard lat={latitude} lng={longitude} />
-                    </div>
 
-                    <p><strong>Phone: </strong>{phone}</p>
-                    <p><strong>Website: </strong></p>
-                    <p><strong>Hours: </strong></p>
-                    <Link to={`/EditBusiness/${currentUid}`}>
-                        <Button variant="outline-primary" type="submit">Edit Business Information</Button>
-                    </Link>   
-                </div>
+                  
+
+                        <Link to={`/EditBusiness/${currentUid}`}>
+                            <Button variant="outline-primary" type="submit">Edit Business Information</Button>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </>
