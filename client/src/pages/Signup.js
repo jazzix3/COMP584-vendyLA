@@ -76,9 +76,9 @@ const Signup = () => {
         <>
             <TopNav />
 
-            <div className="container" id="main-content">
+            <div className="container col-6 p-5 mb-5 mt-5 rounded signup-container" id="main-content">
                 {error && <Alert variant="danger">{error}</Alert>}
-                <h1>Sign Up</h1>
+                <h1 className ="mb-3">Sign Up</h1>
                 <p> Already have an account?<span><Link to="/Login">Log in</Link></span></p>
 
                 <Form onSubmit={signup}>

@@ -38,3 +38,32 @@ transition: all 0.2s ease-in-out;
 .about-card:hover {
 transform: translateY(-5px);
 }
+
+.dash-heading{
+  font-size: 2.5vw;
+  font-weight: bold;
+  letter-spacing: -.001em;
+}
+
+.info-col, .review-col, .map-col{
+  background-color: #ffffff;
+}
+
+.map-col{
+  border-left: 1px solid lightgray;
+}
+
+.dash-container{
+  background-color: rgba(var(--bs-light-rgb));
+}
+
+.login-container, .signup-container{
+  overflow:hidden;
+  min-width: 300px;
+  box-shadow: 9px 18px 28px -1px rgba(0,0,0,0.20);
+  padding: 20px;
+}
+
+.login-container h1, .signup-container h1{
+  font-weight: bold;
+}
