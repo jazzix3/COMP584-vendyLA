@@ -35,10 +35,10 @@ const Login = () => {
         <>
             <TopNav />
 
-            <div className="container" id="main-content">
+            <div className="container col-6 p-5 mb-5 mt-5 rounded login-container" id="main-content">
                 {message && <div className="alert alert-success">{message}</div>}
                 {error && <Alert variant="danger">{error}</Alert>}
-                <h1>Log In</h1>
+                <h1 className ="mb-3">Log In</h1>
                 <p> New User?<span> <Link to="/Signup">Sign up for an account</Link></span></p>
 
                 <Form onSubmit={login}>
