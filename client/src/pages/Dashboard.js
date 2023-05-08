@@ -19,6 +19,8 @@ const Dashboard = () => {
     const [latitude, setLatitude] = useState("");
     const [longitude, setLongitude] = useState("");
     const [phone, setPhone] = useState("");
+    const [businessImage, setBusinessImage] = useState("");
+
 
     useEffect(() => {
         const currentUser = auth.currentUser;
@@ -38,10 +40,11 @@ const Dashboard = () => {
                         setLatitude(data.business.location.latitude)
                         setLongitude(data.business.location.longitude)
                         setPhone(data.business.phone)
+                        setBusinessImage(data.business.businessImage)
                     } else {
                         console.log("User not found");
                     }
-                    
+
                 })
                 .catch((error) => {
                     console.log(error);
@@ -61,31 +64,39 @@ const Dashboard = () => {
                 <p>Welcome! This is where vendors can view their info.</p>
 
                 <div class="row">
-                <div class="col-md-6 mt-5" id="user-profile">
-                    
-                    <p><strong>First Name: </strong>{firstName}</p>
-                    <p><strong>Last Name: </strong>{lastName}</p>
-                    <p><strong>Email: </strong>{email}</p>
-                    <p><strong>Profile Image: </strong><img src={userProfile} style={{ width: "40px", height: "40px" }} alt="User Profile"/> </p>
-                    <Link to={`/EditProfile/${currentUid}`}>
-                        <Button variant="outline-primary" type="submit">Edit Profile</Button>
-                    </Link>
-                </div>
+                    <div class="col-md-6 mt-5" id="user-profile">
 
-                <div class="col-md-6 mt-5" id="business-info" >
-                    <p><strong>Business Name: </strong>{businessName}</p>
-                    <p><strong>Location: </strong>{address}</p>
-                    <div className="map-container">
-                        <MapDashboard lat={latitude} lng={longitude} />
+                        <p><strong>First Name: </strong>{firstName}</p>
+                        <p><strong>Last Name: </strong>{lastName}</p>
+                        <p><strong>Email: </strong>{email}</p>
+                        <p><strong>Profile Image: </strong><img src={userProfile} style={{ width: "40px", height: "40px" }} alt="User Profile" /> </p>
+                        <Link to={`/EditProfile/${currentUid}`}>
+                            <Button variant="outline-primary" type="submit">Edit Profile</Button>
+                        </Link>
                     </div>
 
-                    <p><strong>Phone: </strong>{phone}</p>
-                    <p><strong>Website: </strong></p>
-                    <p><strong>Hours: </strong></p>
-                    <Link to={`/EditBusiness/${currentUid}`}>
-                        <Button variant="outline-primary" type="submit">Edit Business Information</Button>
-                    </Link>   
-                </div>
+                    <div class="col-md-6 mt-5" id="business-info" >
+                        <p><strong>Business Name: </strong>{businessName}</p>
+                        <p><strong>Location: </strong>{address}</p>
+                        <div className="map-container">
+                            <MapDashboard lat={latitude} lng={longitude} />
+                        </div>
+
+                        <p><strong>Phone: </strong>{phone}</p>
+                        <p><strong>Website: </strong></p>
+                        <p><strong>Hours: </strong></p>
+
+                        <div style={{ width: "50%", paddingBottom: "20px" }}>
+                            {businessImage && (
+                                <img src={businessImage} alt="Business" style={{ width: "100%" }} />
+                            )}
+                        </div>
+
+
+                        <Link to={`/EditBusiness/${currentUid}`}>
+                            <Button variant="outline-primary" type="submit">Edit Business Information</Button>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </>

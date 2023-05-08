@@ -3,8 +3,9 @@ import TopNav from '../components/Navbar';
 import { Form, Button, Alert } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 import { doc, updateDoc, getDoc } from "firebase/firestore";
-import { db } from "../firebase";
+import { db, storage } from "../firebase";
 import PlacesAutoComplete from "../components/PlacesAutoComplete";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const EditBusiness = () => {
     const { userId } = useParams();
@@ -17,45 +18,69 @@ const EditBusiness = () => {
     const [selectedLocation, setSelectedLocation] = useState(null);
     const [inputPhone, setPhone] = useState("");
     const [phoneIsValid, setPhoneIsValid] = useState(true);
+    const [selectedImage, setSelectedImage] = useState(null);
+
 
     useEffect(() => {
         // Get the user's existing business info from Firestore
         const getBusinessInfo = async () => {
-        try {
-            const userDocRef = doc(db, "users", userId);
-            const userDocSnap = await getDoc(userDocRef);
+            try {
+                const userDocRef = doc(db, "users", userId);
+                const userDocSnap = await getDoc(userDocRef);
 
-            if (userDocSnap.exists()) {
-                const data = userDocSnap.data();
-                setBusinessName(data.business.name);
-                setPhone(data.business.phone);
+                if (userDocSnap.exists()) {
+                    const data = userDocSnap.data();
+                    setBusinessName(data.business.name);
+                    setPhone(data.business.phone);
+                }
+            } catch (error) {
+                console.log(error);
             }
-        } catch (error) {
-            console.log(error);
-        }};
-    getBusinessInfo();}, [userId]);
-  
-    
+        };
+        getBusinessInfo();
+    }, [userId]);
 
-    const saveBusinessInfo = (e) => {
+    const uploadImage = async () => {
+        try {
+          const storageRef = ref(storage, `Business Image/${userId}`);
+          await uploadBytes(storageRef, selectedImage);
+          const url = await getDownloadURL(storageRef);
+          return url;
+        } catch (error) {
+          console.log(error);
+          setError("Unable to upload image.");
+          return null;
+        }
+      };
+      
+
+      const saveBusinessInfo = async (e) => {
         e.preventDefault();
         setFormSubmitted(true);
-
+      
         if (phoneIsValid) {
-            const userDocRef = doc(db, "users", userId);
-            updateDoc(userDocRef, {
-                "business.name": inputBusinessName,
-                "business.phone": inputPhone,
-                "business.location": selectedLocation
-            }).then(() => {
-                navigate("/Dashboard");
-            }).catch((error) => {
-                console.log(error);
-            });
+          let imageUrl = null;
+          if (selectedImage) {
+            imageUrl = await uploadImage();
+          }
+      
+          const userDocRef = doc(db, "users", userId);
+          updateDoc(userDocRef, {
+            "business.name": inputBusinessName,
+            "business.phone": inputPhone,
+            "business.location": selectedLocation,
+            "business.businessImage": imageUrl
+          }).then(() => {
+            navigate("/Dashboard");
+          }).catch((error) => {
+            console.log(error);
+            setError("Unable to save changes.");
+          });
         } else {
-            setError("Invalid input. Unable to save changes.");
+          setError("Invalid input. Unable to save changes.");
         }
-    };
+      };
+      
 
     const checkPhone = (e) => {
         const PHONE_REGEX = /^\d{3}-\d{3}-\d{4}$/; // regular expression for XXX-XXX-XXXX
@@ -66,42 +91,48 @@ const EditBusiness = () => {
 
     return (
         <>
-        <TopNav />
-        <div className="container" id="main-content">
-            {error && <Alert variant="danger">{error}</Alert>}
-            <h1>Edit Business Information</h1>
+            <TopNav />
+            <div className="container" id="main-content">
+                {error && <Alert variant="danger">{error}</Alert>}
+                <h1>Edit Business Information</h1>
 
-            <Form onSubmit={saveBusinessInfo}>
-            <Form.Group className="mb-3" controlId="BusinessName">
-                <Form.Label>Business Name</Form.Label>
-                <Form.Control type="text" value={inputBusinessName}
-                    onChange={(e) => setBusinessName(e.target.value)}
-                    required
-                />
-            </Form.Group>
+                <Form onSubmit={saveBusinessInfo}>
+                    <Form.Group className="mb-3" controlId="BusinessName">
+                        <Form.Label>Business Name</Form.Label>
+                        <Form.Control type="text" value={inputBusinessName}
+                            onChange={(e) => setBusinessName(e.target.value)}
+                            required
+                        />
+                    </Form.Group>
 
-            <Form.Group className="mb-3 location" controlId="Location">
-                <Form.Label>Location</Form.Label>
-                <PlacesAutoComplete setLocation={setSelectedLocation} />
-            </Form.Group>
+                    <Form.Group className="mb-3 location" controlId="Location">
+                        <Form.Label>Location</Form.Label>
+                        <PlacesAutoComplete setLocation={setSelectedLocation} />
+                    </Form.Group>
 
                     <Form.Group className="mb-3" controlId="Phone">
                         <Form.Label>Phone</Form.Label>
-                        <Form.Control type="text" value={inputPhone} 
+                        <Form.Control type="text" value={inputPhone}
                             onChange={checkPhone} required />
-                            {!phoneIsValid && formSubmitted && (
-                                <Form.Text className="text-danger">
-                                    Please enter a valid phone number in the format XXX-XXX-XXXX.
-                                </Form.Text>
-                            )}
+                        {!phoneIsValid && formSubmitted && (
+                            <Form.Text className="text-danger">
+                                Please enter a valid phone number in the format XXX-XXX-XXXX.
+                            </Form.Text>
+                        )}
                     </Form.Group>
-            
+
+                    <Form.Group className="mb-3" controlId="BusinessImage">
+                        <Form.Label>Business Image</Form.Label>
+                        <Form.Control type="file" onChange={(e) => setSelectedImage(e.target.files[0])} />
+                    </Form.Group>
+
+
                     <Button variant="outline-primary" type="submit">Save Business Information</Button>
-                    <Button variant="outline-secondary" onClick={() => navigate(-1)} style={{marginLeft:"10px"}}>Cancel</Button>
+                    <Button variant="outline-secondary" onClick={() => navigate(-1)} style={{ marginLeft: "10px" }}>Cancel</Button>
                 </Form>
             </div>
-            </>
-        );
+        </>
+    );
 };
 
 export default EditBusiness;
