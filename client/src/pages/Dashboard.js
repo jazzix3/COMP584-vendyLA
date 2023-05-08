@@ -72,7 +72,7 @@ const Dashboard = () => {
                     <p><strong>First Name: </strong>{firstName}</p>
                     <p><strong>Last Name: </strong>{lastName}</p>
                     <p><strong>Email: </strong>{email}</p>
-                    {/*<p><strong>Profile Image: </strong><img src={userProfile} style={{ width: "40px", height: "40px" }} alt="User Profile"/> </p>*/}
+                    <p><strong>Profile Image: </strong><img src={userProfile} style={{ width: "40px", height: "40px" }} alt="User Profile"/> </p>
                     <Link to={`/EditProfile/${currentUid}`}>
                         <Button variant="outline-primary" type="submit">Edit Profile</Button>
                     </Link>
