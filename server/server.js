@@ -14,7 +14,7 @@ app.get('/api/yelp', async (req, res) => {
     const params = {
       location,
       categories: 'streetvendors',
-      radius: 8000,
+      radius: 4820,   // 3 mi radius
       bounds: '33.677359, -118.562809|34.764463, -117.775136',
       sort_by: 'distance'
     };
