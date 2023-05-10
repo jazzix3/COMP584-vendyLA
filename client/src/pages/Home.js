@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import TopNav from "../components/Navbar";
 import Map from "../components/Map";
 import DisplaySearchResults from "../components/search/DisplaySearchResults";
@@ -9,9 +9,7 @@ const Home = () => {
     const [businessList, setBusinessList] = useState([]);
     const [locationCenter, setLocationCenter] = useState({ lat: null, lng: null });
 
-    useEffect(() => {
-        console.log("home- locationCenter: " + JSON.stringify(locationCenter));
-    }, [locationCenter]);
+
 
     const handleSearchSubmit = async (location) => {
         try {
@@ -54,7 +52,7 @@ const Home = () => {
                 className=" col-12 col-lg-8 col-md-7 col-sm-12 mt-2 mb-3 p-3"
                 id="map-container"
             >
-                <Map locationCenter={locationCenter} />
+                <Map locationCenter={locationCenter} businessList={businessList} />
             </div>
             </div>
         </div>
