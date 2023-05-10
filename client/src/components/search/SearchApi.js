@@ -4,7 +4,7 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 
 
 
-export const SearchApi = async (location, setLatLng) => {
+export const SearchApi = async (location) => {
     try {
         // GET request to yelp api through server.js
         const response = await axios.get("/api/yelp", {
@@ -13,21 +13,21 @@ export const SearchApi = async (location, setLatLng) => {
             categories: "streetvendors",
         },
         });
-        console.log(response.data);
+        console.log("Yelp businesses: " + JSON.stringify(response.data));
         // response from yelp stored as objects in an array
         const yelpBusinesses = response.data.businesses;
 
         // get latlng for the location input and pass to SearchFirestore function
         const latLngResponse = await getLatLng(location);
-        console.log(latLngResponse);
-        setLatLng(latLngResponse);
+        console.log("latLngResponse: " + JSON.stringify(latLngResponse));
+        
 
         // return from SearchFirestore stored as objects in array
         const firestoreBusinesses = await SearchFirestore(latLngResponse);
 
         // combine objects into one array and return
         const BusinessResultsArray = [...firestoreBusinesses,...yelpBusinesses];
-    return { businesses: BusinessResultsArray }
+    return { businesses: BusinessResultsArray, latLngResponse }
 
 } catch (err) {
     console.error(err);
@@ -65,7 +65,7 @@ const SearchFirestore = async (latLng) => {
         const business = doc.data().business;
         latBusinessArray.push(business);
     });
-    console.log("firebase lat businesses:" + JSON.stringify(latBusinessArray));
+
 
     // Repeat for lng
     const lngQuery = query(
@@ -79,7 +79,6 @@ const SearchFirestore = async (latLng) => {
         const business = doc.data().business;
         lngBusinessArray.push(business);
     });
-    console.log("firebase lng businesses:" + JSON.stringify(lngBusinessArray));
 
     // Filter and combine results such that firestoreBusinesses contains businesses once
     const firestoreBusinesses = latBusinessArray.filter((latBusiness) =>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TopNav from "../components/Navbar";
 import Map from "../components/Map";
 import DisplaySearchResults from "../components/search/DisplaySearchResults";
@@ -7,16 +7,27 @@ import { SearchApi } from "../components/search/SearchApi";
 
 const Home = () => {
     const [businessList, setBusinessList] = useState([]);
-    const [latLng, setLatLng] = useState({ lat: null, lng: null });
+    const [locationCenter, setLocationCenter] = useState({ lat: null, lng: null });
+
+    useEffect(() => {
+        console.log("home- locationCenter: " + JSON.stringify(locationCenter));
+    }, [locationCenter]);
 
     const handleSearchSubmit = async (location) => {
         try {
         // city or zipcode user input from seachbar is passed to SearchApi 
-        const { businesses: BusinessResultsArray } = await SearchApi(location, setLatLng);
-        console.log("home: " + JSON.stringify(BusinessResultsArray)) // for testing
+        const { businesses: BusinessResultsArray, latLngResponse } = await SearchApi(location);
+        
+        
 
         // Array returned from SearchApi is passed to DisplaySearchResults component
+        console.log("home- businesses: " + JSON.stringify(BusinessResultsArray));  // for testing
         setBusinessList(BusinessResultsArray);
+        
+        console.log ("home- latLngResponse: " + JSON.stringify(latLngResponse));
+        setLocationCenter({ lat: latLngResponse.lat, lng: latLngResponse.lng });
+
+
         } catch (err) {
         console.error(err);
         }
@@ -43,7 +54,7 @@ const Home = () => {
                 className=" col-12 col-lg-8 col-md-7 col-sm-12 mt-2 mb-3 p-3"
                 id="map-container"
             >
-                <Map latLng={latLng} />
+                <Map locationCenter={locationCenter} />
             </div>
             </div>
         </div>

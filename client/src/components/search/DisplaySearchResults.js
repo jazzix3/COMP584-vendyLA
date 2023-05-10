@@ -2,8 +2,6 @@ import React from 'react'
 
 const DisplaySearchResults = ({ businessList }) => {
 
-  console.log("displaysearchresults: " + JSON.stringify(businessList)) // for testing
-
   return (
     <ul>
       {Array.isArray(businessList) &&
