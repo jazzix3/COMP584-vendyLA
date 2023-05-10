@@ -11,7 +11,8 @@ Street vendors are underrepresented within other Food/Merch reviewer application
 
 [Demo 1](https://drive.google.com/file/d/1J9EknQYt1JJPBcGjcG5PDW-Gw0mcM1wT/view?usp=share_link) - Firebase login system and Google Map API implementation\
 [Demo 2](https://drive.google.com/file/d/1zzJ4JF1uydUBdL5cpSvwX0ApUMYf9v8n/view?usp=share_link) - Signup fetches user info and creates 'users' documents in Firestore database\
-[Demo 3](https://drive.google.com/file/d/136RWjmmE8_TFTrdrsVBujJdFICdb0Pbq/view?usp=share_link) - Functionality to add business information to database. Addresses use Places Autocomplete API. Geocoding marks location on dashboard Google map]
+[Demo 3](https://drive.google.com/file/d/136RWjmmE8_TFTrdrsVBujJdFICdb0Pbq/view?usp=share_link) - Functionality to add business information to database. Addresses use Places Autocomplete API. Geocoding marks location on dashboard Google map\
+[Demo 4](https://drive.google.com/file/d/17iZRUmcaE2OqChjXdZUFaCYYPVYC0faz/view?usp=share_link) - Implementation of the business search function. User enters city or zip and business results from Firestore database and Yelp API are displayed 
 
 
 ### Requirements:
@@ -19,7 +20,7 @@ Street vendors are underrepresented within other Food/Merch reviewer application
 **Runtime environment:** [Node.js](https://nodejs.org/en/download/)
 
 **Installed libraries:**
-<br \>
+<br /><br />
 server:
 ```
 npm i express
