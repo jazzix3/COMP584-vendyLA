@@ -57,13 +57,20 @@ transform: translateY(-5px);
   background-color: rgba(var(--bs-light-rgb));
 }
 
-.login-container, .signup-container{
+.login-container, .signup-container, .edit-profile-container{
   overflow:hidden;
   min-width: 300px;
-  box-shadow: 9px 18px 28px -1px rgba(0,0,0,0.20);
-  padding: 20px;
 }
 
-.login-container h1, .signup-container h1{
+.login-container h1, .signup-container h1, .edit-profile-container h1, .edit-business-container h1{
   font-weight: bold;
+}
+
+.login-container, .signup-container{
+  box-shadow: 9px 18px 28px -1px rgba(0,0,0,0.20);
+}
+
+.edit-business-container{
+  overflow:hidden;
+  min-width: 350px;
 }
