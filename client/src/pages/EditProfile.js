@@ -73,7 +73,7 @@ const EditProfile = () => {
     return (
         <>
         <TopNav />
-        <div className="container" id="main-content">
+        <div className="container col-6 p-4 mb-5 mt-5 rounded edit-profile-container" id="main-content">
             <h1>Edit Profile</h1>
 
             <Form onSubmit={saveProfile}>

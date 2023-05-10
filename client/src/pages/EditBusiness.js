@@ -92,7 +92,7 @@ const EditBusiness = () => {
     return (
         <>
             <TopNav />
-            <div className="container" id="main-content">
+            <div className="container col-6 p-4 mb-5 mt-5 rounded edit-business-container" id="main-content">
                 {error && <Alert variant="danger">{error}</Alert>}
                 <h1>Edit Business Information</h1>
 
@@ -126,9 +126,8 @@ const EditBusiness = () => {
                         <Form.Control type="file" onChange={(e) => setSelectedImage(e.target.files[0])} />
                     </Form.Group>
 
-
-                    <Button variant="outline-primary" type="submit">Save Business Information</Button>
-                    <Button variant="outline-secondary" onClick={() => navigate(-1)} style={{ marginLeft: "10px" }}>Cancel</Button>
+                    <Button variant="outline-primary mb-3" type="submit">Save Information</Button>
+                    <Button variant="outline-secondary mb-3" onClick={() => navigate(-1)} style={{ marginLeft: "10px" }}>Cancel</Button> 
                 </Form>
             </div>
         </>
