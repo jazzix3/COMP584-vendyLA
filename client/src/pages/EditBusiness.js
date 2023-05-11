@@ -58,10 +58,16 @@ const EditBusiness = () => {
         e.preventDefault();
         setFormSubmitted(true);
       
+
         if (phoneIsValid) {
           let imageUrl = null;
           if (selectedImage) {
             imageUrl = await uploadImage();
+          } else {
+            const userDocRef = doc(db, "users", userId);
+            const userDocSnap = await getDoc(userDocRef);
+            const data = userDocSnap.data();
+            imageUrl = data.business.businessImage;
           }
       
           const userDocRef = doc(db, "users", userId);
@@ -69,13 +75,15 @@ const EditBusiness = () => {
             "business.name": inputBusinessName,
             "business.phone": inputPhone,
             "business.location": selectedLocation,
-            "business.businessImage": imageUrl
-          }).then(() => {
-            navigate("/Dashboard");
-          }).catch((error) => {
-            console.log(error);
-            setError("Unable to save changes.");
-          });
+            "business.businessImage": imageUrl,
+          })
+            .then(() => {
+              navigate("/Dashboard");
+            })
+            .catch((error) => {
+              console.log(error);
+              setError("Unable to save changes.");
+            });
         } else {
           setError("Invalid input. Unable to save changes.");
         }
