@@ -48,8 +48,7 @@ const Signup = () => {
                         email: inputEmail,
                         userProfile: userProfile,
                         business: {
-                            name: "",
-                            address: "",
+                            name: "",       
                             phone: "",
                             website: "",
                             businessImage: "",
