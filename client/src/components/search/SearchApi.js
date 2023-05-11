@@ -54,8 +54,8 @@ const SearchFirestore = async (latLng) => {
     const usersRef = collection(db, "users");
     const latQuery = query(
         usersRef,
-        where("business.location.latitude", ">=", parseFloat(lat) - 0.35),
-        where("business.location.latitude", "<=", parseFloat(lat) + 0.35),
+        where("business.location.latitude", ">=", parseFloat(lat) - 0.05),
+        where("business.location.latitude", "<=", parseFloat(lat) + 0.05),
     );
     const latQuerySnapshot = await getDocs(latQuery);
 
@@ -70,8 +70,8 @@ const SearchFirestore = async (latLng) => {
     // Repeat for lng
     const lngQuery = query(
         usersRef,
-        where("business.location.longitude", ">=", parseFloat(lng) - 0.35),
-        where("business.location.longitude", "<=", parseFloat(lng) + 0.35),
+        where("business.location.longitude", ">=", parseFloat(lng) - 0.05),
+        where("business.location.longitude", "<=", parseFloat(lng) + 0.05),
     );
     const lngQuerySnapshot = await getDocs(lngQuery);
     const lngBusinessArray = [];
