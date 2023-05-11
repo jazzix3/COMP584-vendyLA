@@ -52,6 +52,7 @@ const Signup = () => {
                             address: "",
                             phone: "",
                             website: "",
+                            businessImage: "",
                         }
                     }).then(() => {
                         return true; // return a promise that resolves to true
