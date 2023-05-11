@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { AuthContext } from './Authentication';
 import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
+import VendyLALogo from "../assets/img/VendyLALogo.png";
 
 function TopNav() {
     const { authUser, logOut } = useContext(AuthContext);
@@ -32,13 +33,18 @@ function TopNav() {
               console.log(error);
             });
         }
-      }, [authUser]);
-      
+    }, [authUser]);
 
     return (
         <Navbar bg="light" expand="sm" style={{ display: "flex", alignItems: "center" }}>
             <Container>
-                <Navbar.Brand href="/" className="mx-auto">VendyLA</Navbar.Brand>
+                <Link to="/">
+                    <img
+                        src={VendyLALogo}
+                        alt="Vendy LA Logo"
+                        style={{ width: "100px" }}
+                    />
+                </Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
@@ -46,7 +52,6 @@ function TopNav() {
                         <Nav.Link href="/reviews">Reviews</Nav.Link>
                     </Nav>
                     {authUser ? (
-
                         <Nav className="ms-auto" style={{ display: "flex", alignItems: "center" }}>
                             <Link to="/Dashboard" style={{ display: "flex", alignItems: "center" }}>
                                 Logged in as {firstName} {lastName}
@@ -57,19 +62,15 @@ function TopNav() {
                                     style={{ width: "40px", height: "40px" }}
                                 />
                             </Link>
-
                             <Button className="btn btn-primary" style={{ marginLeft: "15px" }} onClick={logOut}>Log Out</Button>
                         </Nav>
-
-
-                    )
-
-                        : (
-                            <Nav className="ms-auto" style={{ display: "flex", alignItems: "center" }}>
-                                <Link to="/Login"><button className="btn btn-primary">Log In</button></Link>
-                            </Nav>
-                        )
-                    }
+                    ) : (
+                        <Nav className="ms-auto" style={{ display: "flex", alignItems: "center" }}>
+                            <Link to="/Login">
+                                <button className="btn btn-primary">Log In</button>
+                            </Link>
+                        </Nav>
+                    )}
                 </Navbar.Collapse>
             </Container>
         </Navbar>
