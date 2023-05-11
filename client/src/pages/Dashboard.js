@@ -67,7 +67,7 @@ const Dashboard = () => {
                 <div class="row">
 
                     {/* info column*/}
-                    <div class="col-12 col-lg-3 col-md-6 col-sm-12 mt-5 order-md-1 info-col" id="user-profile">
+                    <div class="col-12 col-lg-5 col-md-6 col-sm-12 mt-5 info-col" id="user-profile">
                         <h1 className="dash-heading">Profile</h1>
                         <p><strong>First Name: </strong>{firstName}</p>
                         <p><strong>Last Name: </strong>{lastName}</p>
@@ -79,6 +79,7 @@ const Dashboard = () => {
                     </div>
 
                     {/* review column - tbd*/}
+                {/*    
                     <div class="col-12 col-lg-6 col-md-12 col-sm-12 mt-5 order-3 order-lg-2 order-md-3 order-sm-3 review-col" id="user-profile">
                         <h1 class="dash-heading">Reviews for {businessName}</h1>
                         <h5>tbd if we're keeping reviews</h5>
@@ -88,9 +89,9 @@ const Dashboard = () => {
                         <p><strong>Review: </strong></p>
                         <hr></hr>
                     </div>
-
+                */}
                     {/* map column*/}
-                    <div class="col-12 col-lg-3 col-md-6 col-sm-12 mt-5 order-md-2 map-col" id="business-info" >
+                    <div class="col-12 col-lg-7 col-md-6 col-sm-12 mt-5 map-col" id="business-info" >
                         <h1 class="dash-heading">Business Info</h1>
                         <p><strong>Business Name: </strong>{businessName}</p>
                         <p><strong>Location: </strong>{address}</p>
@@ -99,7 +100,7 @@ const Dashboard = () => {
                             <MapDashboard lat={latitude} lng={longitude} />
 
 
-                            <p>
+                            <p class = "mt-3">
                                 <strong>Business Image: </strong>
                                 {businessImage && <img src={businessImage} alt="Business" style={{ width: "300px", height: "200px" }} />}
                             </p>
