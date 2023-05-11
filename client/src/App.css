@@ -68,9 +68,21 @@ transform: translateY(-5px);
 
 .login-container, .signup-container{
   box-shadow: 9px 18px 28px -1px rgba(0,0,0,0.20);
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .edit-business-container{
   overflow:hidden;
   min-width: 350px;
+}
+
+.background-container {
+  background-image: url("../src/assets/img/VendyBG.png");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }

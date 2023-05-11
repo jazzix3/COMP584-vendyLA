@@ -54,7 +54,7 @@ const Signup = () => {
                             businessImage: "",
                         }
                     }).then(() => {
-                        return true; // return a promise that resolves to true
+                        return true;
                     });
                 });
             })
@@ -75,7 +75,7 @@ const Signup = () => {
     return (
         <>
             <TopNav />
-
+            <div class="background-container">
             <div className="container col-6 p-5 mb-5 mt-5 rounded signup-container" id="main-content">
                 {error && <Alert variant="danger">{error}</Alert>}
                 <h1 className ="mb-3">Sign Up</h1>
@@ -114,6 +114,7 @@ const Signup = () => {
                 <div>
                     <GoogleSignIn />
                 </div>
+            </div>
             </div>
         </>
     );
