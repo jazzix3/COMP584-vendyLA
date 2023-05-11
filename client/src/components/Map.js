@@ -11,7 +11,7 @@ const centerLA = {
   lng: -118.243683,
 };
 
-const zoomLA = 12;
+const zoomLA = 10.5;
 
 const options ={
   streetViewControl: false,
@@ -39,7 +39,7 @@ function Map({ locationCenter, businessList }) {
   useEffect(() => {
     if (locationCenter && locationCenter.lat && locationCenter.lng) {
       setMapCenter(locationCenter);
-      setMapZoom(14);
+      setMapZoom(13);
     }
   }, [locationCenter]);
 
@@ -98,7 +98,15 @@ function Map({ locationCenter, businessList }) {
             setSelectedPosition(null);
           }}
         >
-          <div>{selectedBusiness.name}</div>
+          <div>{selectedBusiness.name}
+          <p>{selectedBusiness.location.address ||
+                `${selectedBusiness.location.address1 ? selectedBusiness.location.address1 + '\n' : ''} 
+                ${selectedBusiness.location.address2 ? selectedBusiness.location.address2 + '\n' : ''}
+                ${selectedBusiness.location.address3 ? selectedBusiness.location.address3 + '\n' : ''}
+                ${selectedBusiness.location.city ? selectedBusiness.location.city + ', ' : ''}
+                ${selectedBusiness.location.state ? selectedBusiness.location.state + ' ' : ''}
+                ${selectedBusiness.location.zipcode || ''}`}</p>
+          </div>
         </InfoWindow>
       )}
           </GoogleMap>
