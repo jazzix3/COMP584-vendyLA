@@ -20,10 +20,11 @@ const DisplaySearchResults = ({ businessList }) => {
 
               <p>
                 <img
-                  src={business.businessImage ? business.businessImage : business.image_url}
+                  src={business.businessImage || business.image_url || "https://firebasestorage.googleapis.com/v0/b/vendyla-384123.appspot.com/o/Default%20Business%20Image%2FDefaultBusiness.png?alt=media&token=30f1d0ec-6431-4a04-ba0a-b6bb57a6326c"}
                   alt={business.name}
                   style={{ maxWidth: '300px', maxHeight: '200px' }}
                 />
+
               </p>
 
             </ul>

@@ -28,6 +28,8 @@ const EditProfile = () => {
                 const data = userDocSnap.data();
                 setFirstName(data.firstName);
                 setLastName(data.lastName);
+                setUserProfile(data.userProfile);
+                
             }
         } catch (error) {
             console.log(error);
@@ -40,34 +42,32 @@ const EditProfile = () => {
         setInputUserProfile(e.target.files[0]);
     };
 
-    const saveProfile = (e) => {
+    const saveProfile = async (e) => {
         e.preventDefault();
 
         const userDocRef = doc(db, "users", userId);
 
-        let userProfilePromise = Promise.resolve(userProfile);
+        try {
+            if (inputUserProfile) {
+                const userProfileRef = ref(storage, `Profile Images/${userId}`);
+                await uploadBytes(userProfileRef, inputUserProfile);
+                const newUserProfile = await getDownloadURL(userProfileRef);
+                await updateDoc(userDocRef, {
+                    firstName: inputFirstName,
+                    lastName: inputLastName,
+                    userProfile: newUserProfile,
+                });
+            } else {
+                await updateDoc(userDocRef, {
+                    firstName: inputFirstName,
+                    lastName: inputLastName,
+                });
+            }
 
-        if (inputUserProfile) {
-        const userProfileRef = ref(storage, `Profile Images/${userId}`);
-        userProfilePromise = uploadBytes(userProfileRef, inputUserProfile)
-            .then(() => {
-            return getDownloadURL(userProfileRef);
-            });
-        }
-
-        userProfilePromise
-        .then((newUserProfile) => {
-            setUserProfile(newUserProfile);
-            return updateDoc(userDocRef, {
-            firstName: inputFirstName,
-            lastName: inputLastName,
-            userProfile: newUserProfile,
-            });
-        }).then(() => {
             navigate("/Dashboard");
-        }).catch((error) => {
+        } catch (error) {
             console.log(error);
-        });
+        }
     };
 
     return (

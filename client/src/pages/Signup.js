@@ -48,10 +48,10 @@ const Signup = () => {
                         email: inputEmail,
                         userProfile: userProfile,
                         business: {
-                            name: "",
-                            address: "",
+                            name: "",       
                             phone: "",
                             website: "",
+                            businessImage: "",
                         }
                     }).then(() => {
                         return true; // return a promise that resolves to true

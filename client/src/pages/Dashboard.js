@@ -59,52 +59,59 @@ const Dashboard = () => {
     return (
         <>
             <TopNav />
-            <div className="container mb-3 pt-3 dash-container" id="main-content" style={{overflow: 'hidden'}}>
-            <div className = "image-placeholder" style={{width: '200px', height: '200px'}}><img src={userProfile} style={{ width: "200px", height: "200px" }} alt="User Profile"/> </div>
+            <div className="container mb-3 pt-3 dash-container" id="main-content" style={{ overflow: 'hidden' }}>
+                <div className="image-placeholder" style={{ width: '200px', height: '200px' }}><img src={userProfile} style={{ width: "200px", height: "200px" }} alt="User Profile" /> </div>
                 <h1>Dashboard</h1>
                 <p>Welcome! This is where vendors can view their info.</p>
 
                 <div class="row">
 
-                {/* info column*/}
-                <div class="col-12 col-lg-3 col-md-6 col-sm-12 mt-5 order-md-1 info-col" id="user-profile">
-                    <h1 className = "dash-heading">Profile</h1>
-                    <p><strong>First Name: </strong>{firstName}</p>
-                    <p><strong>Last Name: </strong>{lastName}</p>
-                    <p><strong>Email: </strong>{email}</p>
-                    <p><strong>Profile Image: </strong><img src={userProfile} style={{ width: "40px", height: "40px" }} alt="User Profile"/> </p>
-                    <Link to={`/EditProfile/${currentUid}`}>
-                        <Button variant="outline-primary" type="submit">Edit Profile</Button>
-                    </Link>
-                </div>
-
-                {/* review column - tbd*/}
-                <div class="col-12 col-lg-6 col-md-12 col-sm-12 mt-5 order-3 order-lg-2 order-md-3 order-sm-3 review-col" id="user-profile">
-                    <h1 class = "dash-heading">Reviews for {businessName}</h1>
-                    <h5>tbd if we're keeping reviews</h5>
-                    <hr></hr>
-                    <p><strong>First Name: </strong>*reviewer's first name*</p>
-                    <p><strong>Last Name: </strong>*reviewer's last name*</p>
-                    <p><strong>Review: </strong></p>
-                    <hr></hr>
-                </div>
-
-                {/* map column*/}
-                <div class="col-12 col-lg-3 col-md-6 col-sm-12 mt-5 order-md-2 map-col" id="business-info" >
-                    <h1 class = "dash-heading">Business Info</h1>
-                    <p><strong>Business Name: </strong>{businessName}</p>
-                    <p><strong>Location: </strong>{address}</p>
-                    <div className="map-container">
-                        <MapDashboard lat={latitude} lng={longitude} />
-
-                  
-
-                        <Link to={`/EditBusiness/${currentUid}`}>
-                            <Button variant="outline-primary" type="submit">Edit Business Information</Button>
+                    {/* info column*/}
+                    <div class="col-12 col-lg-3 col-md-6 col-sm-12 mt-5 order-md-1 info-col" id="user-profile">
+                        <h1 className="dash-heading">Profile</h1>
+                        <p><strong>First Name: </strong>{firstName}</p>
+                        <p><strong>Last Name: </strong>{lastName}</p>
+                        <p><strong>Email: </strong>{email}</p>
+                        <p><strong>Profile Image: </strong><img src={userProfile} style={{ width: "40px", height: "40px" }} alt="User Profile" /> </p>
+                        <Link to={`/EditProfile/${currentUid}`}>
+                            <Button variant="outline-primary" type="submit">Edit Profile</Button>
                         </Link>
                     </div>
+
+                    {/* review column - tbd*/}
+                    <div class="col-12 col-lg-6 col-md-12 col-sm-12 mt-5 order-3 order-lg-2 order-md-3 order-sm-3 review-col" id="user-profile">
+                        <h1 class="dash-heading">Reviews for {businessName}</h1>
+                        <h5>tbd if we're keeping reviews</h5>
+                        <hr></hr>
+                        <p><strong>First Name: </strong>*reviewer's first name*</p>
+                        <p><strong>Last Name: </strong>*reviewer's last name*</p>
+                        <p><strong>Review: </strong></p>
+                        <hr></hr>
+                    </div>
+
+                    {/* map column*/}
+                    <div class="col-12 col-lg-3 col-md-6 col-sm-12 mt-5 order-md-2 map-col" id="business-info" >
+                        <h1 class="dash-heading">Business Info</h1>
+                        <p><strong>Business Name: </strong>{businessName}</p>
+                        <p><strong>Location: </strong>{address}</p>
+                        <p><strong>Phone: </strong>{phone}</p>
+                        <div className="map-container">
+                            <MapDashboard lat={latitude} lng={longitude} />
+
+
+                            <p>
+                                <strong>Business Image: </strong>
+                                {businessImage && <img src={businessImage} alt="Business" style={{ width: "300px", height: "200px" }} />}
+                            </p>
+
+
+                            <Link to={`/EditBusiness/${currentUid}`}>
+                                <Button variant="outline-primary" type="submit">Edit Business Information</Button>
+                            </Link>
+                        </div>
+
+                    </div>
                 </div>
-            </div>
             </div>
         </>
     );
