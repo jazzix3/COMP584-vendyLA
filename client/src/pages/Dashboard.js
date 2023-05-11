@@ -101,7 +101,7 @@ const Dashboard = () => {
 
                             <p>
                                 <strong>Business Image: </strong>
-                                {businessImage && <img src={businessImage} alt="Business" style={{ width: "250px", height: "250px" }} />}
+                                {businessImage && <img src={businessImage} alt="Business" style={{ width: "300px", height: "200px" }} />}
                             </p>
 
 
