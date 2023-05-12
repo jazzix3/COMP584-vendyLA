@@ -43,7 +43,13 @@ const DisplaySearchResults = ({ businessList, onBusinessSelect }) => {
                       ${business.location.state ? business.location.state + ' ' : ''}
                       ${business.location.zipcode || ''}`}</p>
                 </Card.Text>
-                <Button variant="primary" onClick={() => onBusinessSelect(business)}>View more info</Button>
+                <Button variant="primary" onClick={() => {
+                    onBusinessSelect(business);
+                    window.scrollTo({ top: 0 });
+                }}>
+                    View more info
+                </Button>
+
               </Card.Body>
             </Card>
           </div>
