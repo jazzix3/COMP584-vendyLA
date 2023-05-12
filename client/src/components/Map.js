@@ -25,7 +25,7 @@ const options ={
   ]
 };
 
-function Map({ locationCenter, businessList }) {
+function Map({ locationCenter, businessList, onBusinessSelect }) {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
@@ -56,6 +56,13 @@ function Map({ locationCenter, businessList }) {
       setSelectedPosition(mapCenter);
     }
 
+  };
+
+  const handleMoreInfoClick = (event) => {
+    event.preventDefault(); // Prevents the link from navigating to a new page
+    if (selectedBusiness) {
+      onBusinessSelect(selectedBusiness);
+    };
   };
 
   return isLoaded ? (
@@ -108,6 +115,8 @@ function Map({ locationCenter, businessList }) {
                 ${selectedBusiness.location.city ? selectedBusiness.location.city + ', ' : ''}
                 ${selectedBusiness.location.state ? selectedBusiness.location.state + ' ' : ''}
                 ${selectedBusiness.location.zipcode || ''}`}</p>
+
+<a href="#" onClick={handleMoreInfoClick}>View more info</a>     
           </div>
         </InfoWindow>
       )}

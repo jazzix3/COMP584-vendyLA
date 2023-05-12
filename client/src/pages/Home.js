@@ -50,7 +50,7 @@ const Home = () => {
                         className=" col-12 col-lg-7 col-md-7 col-sm-12 mt-2 mb-3"
                         id="map-container"
                     >
-                        <Map locationCenter={locationCenter} businessList={businessList} setSelectedBusiness={setSelectedBusiness} />
+                        <Map locationCenter={locationCenter} businessList={businessList} setSelectedBusiness={setSelectedBusiness} onBusinessSelect={setSelectedBusiness} />
 
                     </div>
                 </div>
