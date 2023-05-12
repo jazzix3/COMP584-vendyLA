@@ -69,26 +69,28 @@ function Map({ locationCenter, businessList }) {
       <Marker position={mapCenter} icon={{url: 'https://maps.google.com/mapfiles/ms/icons/yellow-dot.png'}}
           />
 
-      {businessList.map(business => {
-        let latitude, longitude;
-        if (business.location && business.location.latitude && business.location.longitude) {
-          latitude = business.location.latitude;
-          longitude = business.location.longitude;
-        } else if (business.coordinates && business.coordinates.latitude && business.coordinates.longitude) {
-          latitude = business.coordinates.latitude;
-          longitude = business.coordinates.longitude;
-        }
-        if (latitude && longitude) {
-          return (
-            <Marker
-              key={business.id}
-              position={{ lat: latitude, lng: longitude }}
-              onClick={() => handleMarkerClick(business)}
-            />
-          );
-        }
-        return null;
-      })}
+{businessList.map((business, index) => {
+  let latitude, longitude;
+  if (business.location && business.location.latitude && business.location.longitude) {
+    latitude = business.location.latitude;
+    longitude = business.location.longitude;
+  } else if (business.coordinates && business.coordinates.latitude && business.coordinates.longitude) {
+    latitude = business.coordinates.latitude;
+    longitude = business.coordinates.longitude;
+  }
+  if (latitude && longitude) {
+    return (
+      <Marker
+        key={business.id}
+        position={{ lat: latitude, lng: longitude}}
+        label = {(index + 1).toString()}
+        onClick={() => handleMarkerClick(business)}
+      />
+    );
+  }
+  return null;
+})}
+
 
       {selectedBusiness && selectedPosition && (
         <InfoWindow
