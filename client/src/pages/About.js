@@ -11,6 +11,8 @@ const About = () => {
         <TopNav />
 
         <div className="hero-image"></div>
+        <div className="about-background-image"></div> {/* add a div for the background */}
+
 
         <Container className="d-flex justify-content-center align-items-center flex-column">
             <h1 className="mb-4">About Us</h1>
@@ -34,14 +36,16 @@ const About = () => {
                             <Card.Title>Our history</Card.Title>
                             <Card.Text>
                             <p>Los Angeles has a vibrant street vendor culture that is deeply embedded in the city's history and identity. Street vending has long been an integral part of the city's culinary landscape, offering a diverse array of foods and goods to residents and visitors alike.</p>
+                            <div class="about-card-text">
 
                             <p>The street vendor culture in Los Angeles is known for its diverse range of cuisines, from Mexican tacos and elotes to Filipino skewers and Thai papaya salad. Many of these vendors operate in designated areas such as food truck parks or street fairs, but some also operate illegally on sidewalks and street corners.</p>
 
-                            <p>In recent years, the city has made efforts to legalize and regulate street vending, which was previously considered a misdemeanor offense. In 2018, the Los Angeles City Council passed a law to decriminalize street vending and establish a permit system for vendors to operate legally. This has helped to improve working conditions for vendors and provide more opportunities for entrepreneurship in the city.</p>
+                            <p class="about-card-text-more">In recent years, the city has made efforts to legalize and regulate street vending, which was previously considered a misdemeanor offense. In 2018, the Los Angeles City Council passed a law to decriminalize street vending and establish a permit system for vendors to operate legally. This has helped to improve working conditions for vendors and provide more opportunities for entrepreneurship in the city.</p>
 
-                            <p>However, there are still challenges facing street vendors in Los Angeles, including a lack of access to affordable permits and the threat of displacement due to gentrification and development. Despite these challenges, the street vendor culture in Los Angeles continues to thrive and remains an important part of the city's culinary and cultural landscape.</p>
+                            <p class="about-card-text-more">However, there are still challenges facing street vendors in Los Angeles, including a lack of access to affordable permits and the threat of displacement due to gentrification and development. Despite these challenges, the street vendor culture in Los Angeles continues to thrive and remains an important part of the city's culinary and cultural landscape.</p>
+                            </div>
+                            <Button variant="primary" onClick={() => document.querySelector('.about-card-text').classList.toggle('show-more')}>Learn More</Button>
                             </Card.Text>
-                            <Button variant="primary">Learn More</Button>
                         </Card.Body>
                     </Card>
                 </Col>

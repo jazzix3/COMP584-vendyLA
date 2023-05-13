@@ -30,14 +30,30 @@ height:400px;
 .row-equal-height {
 display: flex;
 }
-
-.about-card {
-transition: all 0.2s ease-in-out;
+/* where the about page cards start */
+.about-card.card {
+  transition: all 0.2s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.1); /* Set opacity to 0.1 */
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 30px;
+  height: 300px;
 }
 
-.about-card:hover {
-transform: translateY(-5px);
+.about-card.card:hover {
+  transform: translateY(-5px);
+  backdrop-filter: blur(10px); /* Increase the blur effect on hover */
 }
+
+.about-card-text-more {
+  display: none;
+}
+
+.about-card-text.show-more .about-card-text-more {
+  display: block;
+}
+
 
 .dash-heading{
   font-size:calc(20px + 1.5vw);
@@ -107,3 +123,15 @@ transform: translateY(-5px);
   text-align: center;
   align-items: center;
 }
+/* aboutpage background css */
+.about-background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../src/assets/img/VendyBG.png");
+  background-size: cover;
+  z-index: -1;
+}
+
