@@ -7,6 +7,7 @@ const About = () => {
     
     return (
         <>  
+        <div className="home-cover">
         
         <TopNav />
 
@@ -60,6 +61,7 @@ const About = () => {
                 </Col>
             </Row>
         </Container>
+        </div>
         
         </>
 

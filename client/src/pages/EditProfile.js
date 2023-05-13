@@ -72,6 +72,7 @@ const EditProfile = () => {
 
     return (
         <>
+        <div className="home-cover">
         <TopNav />
         <div className="container col-6 p-4 mb-5 mt-5 rounded edit-profile-container" id="main-content">
             <h1>Edit Profile</h1>
@@ -93,9 +94,10 @@ const EditProfile = () => {
                 <Form.Control type="file" onChange={handleUserProfileChange} accept="image/*" />
             </Form.Group>
 
-            <Button variant="outline-primary" type="submit">Save Profile</Button>
-            <Button variant="outline-secondary" onClick={() => navigate(-1)} style={{marginLeft:"10px"}}>Cancel</Button>
+            <Button variant="outline-light bg-success" type="submit">Save Profile</Button>
+            <Button variant="outline-light bg-danger" onClick={() => navigate(-1)} style={{marginLeft:"10px"}}>Cancel</Button>
             </Form>
+        </div>
         </div>
         </>
     );

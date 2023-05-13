@@ -9,7 +9,21 @@ const DisplaySearchResults = ({ businessList, onBusinessSelect }) => {
       {Array.isArray(businessList) &&
         businessList.map((business, index) => (
           <div key={index}>
-            <Card style={{ width: '18rem', height: '24rem', marginBottom: '1rem' }}>
+            <Card
+              style={{
+                width: '18rem',
+                height: '24rem',
+                marginBottom: '1rem',
+                transition: 'transform 0.3s',
+                cursor: 'pointer',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'scale(1.05)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'scale(1)';
+              }}
+            >
               <div style={{
                 width: "100%",
                 backgroundColor: "#f1b04c",
@@ -44,10 +58,10 @@ const DisplaySearchResults = ({ businessList, onBusinessSelect }) => {
                       ${business.location.zipcode || ''}`}</p>
                 </Card.Text>
                 <Button variant="primary" onClick={() => {
-                    onBusinessSelect(business);
-                    window.scrollTo({ top: 0 });
+                  onBusinessSelect(business);
+                  window.scrollTo({ top: 0 });
                 }}>
-                    View more info
+                  View more info
                 </Button>
 
               </Card.Body>

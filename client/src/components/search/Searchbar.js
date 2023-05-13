@@ -16,7 +16,8 @@ const Searchbar = ({ onSearch }) => {
             <label>
             <input type="text" className="form-control rounded" placeholder ="Enter City or Zipcode" value={location} onChange={(event) => setLocation(event.target.value)} />
             </label>
-            <button type="submit" className="btn btn-outline-primary" style={{marginLeft:'10px'}}>Search</button>
+            <button type="submit" className="btn" style={{marginLeft:'10px', backgroundColor: '#ffffff', color: '#000000'}}>Search</button>
+
         </form>
         </>
     )
