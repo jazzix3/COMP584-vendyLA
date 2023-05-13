@@ -103,10 +103,10 @@ const EditBusiness = () => {
             <TopNav />
             <div className="container col-6 p-4 mb-5 mt-5 rounded edit-business-container" id="main-content">
                 {error && <Alert variant="danger">{error}</Alert>}
-                <h1>Edit Business Information</h1>
+                <h1 class = "edit-headings">Edit Business Information</h1>
 
                 <Form onSubmit={saveBusinessInfo}>
-                    <Form.Group className="mb-3" controlId="BusinessName">
+                    <Form.Group className="mb-3 fw-bold" controlId="BusinessName">
                         <Form.Label>Business Name</Form.Label>
                         <Form.Control type="text" value={inputBusinessName}
                             onChange={(e) => setBusinessName(e.target.value)}
@@ -114,12 +114,12 @@ const EditBusiness = () => {
                         />
                     </Form.Group>
 
-                    <Form.Group className="mb-3 location" controlId="Location">
+                    <Form.Group className="mb-3 location fw-bold" controlId="Location">
                         <Form.Label>Location</Form.Label>
                         <PlacesAutoComplete setLocation={setSelectedLocation} />
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="Phone">
+                    <Form.Group className="mb-3 fw-bold" controlId="Phone">
                         <Form.Label>Phone</Form.Label>
                         <Form.Control type="text" value={inputPhone}
                             onChange={checkPhone} required />
@@ -130,13 +130,13 @@ const EditBusiness = () => {
                         )}
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="BusinessImage">
+                    <Form.Group className="mb-3 fw-bold" controlId="BusinessImage">
                         <Form.Label>Business Image</Form.Label>
                         <Form.Control type="file" onChange={(e) => setSelectedImage(e.target.files[0])} />
                     </Form.Group>
 
-                    <Button variant="outline-light bg-success mb-3" type="submit">Save Information</Button>
-                    <Button variant="outline-light bg-danger mb-3" onClick={() => navigate(-1)} style={{ marginLeft: "10px" }}>Cancel</Button> 
+                    <Button variant="btn edit-btn fw-bold outline-light mb-3" type="submit">Save Information</Button>
+                    <Button variant=" btn edit-btn fw-bold outline-light mb-3" onClick={() => navigate(-1)} style={{ marginLeft: "10px" }}>Cancel</Button> 
                 </Form>
             </div>
             </div>
