@@ -79,8 +79,10 @@ transform: translateY(-5px);
 
 .background-container {
   background-image: url("../src/assets/img/VendyBG.png");
+  background-attachment: fixed;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -107,3 +109,37 @@ transform: translateY(-5px);
   text-align: center;
   align-items: center;
 }
+
+
+.home-business-background {
+  background-image: url("../src/assets/img/LABG.jpg");
+  height: 500px;
+  width: 500px;
+  border: 3px solid #000000;
+}
+
+.home-cover {
+  background-image: linear-gradient(rgb(151, 94, 115), rgb(202, 72, 72), rgb(255, 167, 90), rgb(221, 221, 122));
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.navbar-custom {
+  display: flex;
+  align-items: center;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.900);
+}
+
+
+
+
+
+
+
+

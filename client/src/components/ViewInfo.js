@@ -4,9 +4,19 @@ const ViewInfo = ({ selectedBusiness }) => {
   return (
     <div>
       {selectedBusiness == null && (
-        <div style={{ height: '500px', width: '500px', backgroundColor: '#f1b04c' }}>
-          <div>
-            Placeholder. Need some placeholder photo or text. Maybe welcome message or directions?
+        <div
+          className="container p-5 rounded home-business-background"
+        >
+          <div className="text-center">
+            <h1 className="mb-4 pt-4 pb-5" style={{textDecoration: 'underline'}}>Welcome to VendyLA!</h1>
+            <p className="pt-2" style={{ color: 'white', backgroundColor: 'rgba(0, 0, 0, 0.5)', padding: '10px', fontWeight: 'bold', fontSize: '16px' }}>
+              Here you can find the best street vendors within the Los Angeles area!
+            </p>
+            <p style={{ color: 'white', backgroundColor: 'rgba(0, 0, 0, 0.5)', padding: '10px', fontWeight: 'bold', fontSize: '16px' }}>
+              We welcome all vendors to sign up and add their business information.
+            </p>
+
+
           </div>
         </div>
       )}

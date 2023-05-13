@@ -16,40 +16,41 @@ function TopNav() {
     useEffect(() => {
         const currentUser = auth.currentUser;
         if (currentUser) {
-          const userDocRef = doc(db, "users", currentUser.uid);
-          getDoc(userDocRef)
-            .then((doc) => {
-              if (doc.exists()) {
-                const data = doc.data();
-                setCurrentUid(currentUser.uid);
-                setFirstName(data.firstName);
-                setLastName(data.lastName);
-                setUserProfile(data.userProfile);
-              } else {
-                console.log("User not found");
-              }
-            })
-            .catch((error) => {
-              console.log(error);
-            });
+            const userDocRef = doc(db, "users", currentUser.uid);
+            getDoc(userDocRef)
+                .then((doc) => {
+                    if (doc.exists()) {
+                        const data = doc.data();
+                        setCurrentUid(currentUser.uid);
+                        setFirstName(data.firstName);
+                        setLastName(data.lastName);
+                        setUserProfile(data.userProfile);
+                    } else {
+                        console.log("User not found");
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
         }
     }, [authUser]);
 
     return (
-        <Navbar bg="light" expand="sm" style={{ display: "flex", alignItems: "center" }}>
+        <Navbar expand="sm" className="navbar-custom" style={{ position: "sticky"}}>
+
             <Container>
                 <Link to="/">
                     <img
                         src={VendyLALogo}
                         alt="Vendy LA Logo"
-                        style={{ width: "100px" }}
+                        style={{ width: "80px" }}
                     />
                 </Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="/about">About</Nav.Link>
-                        <Nav.Link href="/reviews">Reviews</Nav.Link>
+                        <Nav.Link as={Link} to="/about">About</Nav.Link>
+                        {/* <Nav.Link as={Link} to="/reviews">Reviews</Nav.Link> */}
                     </Nav>
                     {authUser ? (
                         <Nav className="ms-auto" style={{ display: "flex", alignItems: "center" }}>

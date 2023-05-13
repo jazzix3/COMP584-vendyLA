@@ -1,24 +1,24 @@
-import React from "react";
-import TopNav from "../components/Navbar";
+// import React from "react";
+// import TopNav from "../components/Navbar";
 
-const Reviews = () => {
+// const Reviews = () => {
     
-    return (
+//     return (
         
-        <>  
+//         <>  
         
-        <TopNav /> 
+//         <TopNav /> 
 
-        <div className="container" id="main-content">
-            <h1>Reviews</h1>
+//         <div className="container" id="main-content">
+//             <h1>Reviews</h1>
         
-        </div>
-        </>
+//         </div>
+//         </>
 
 
 
 
-    )
-}
+//     )
+// }
 
-export default Reviews;
+// export default Reviews;

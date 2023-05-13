@@ -31,7 +31,10 @@ const Home = () => {
 
     return (
         <>
+        <div className="home-cover">
             <TopNav />
+
+            
 
             <div className="container rounded p-2 main-content align-top mb-3" id="main-content">
                 
@@ -56,6 +59,7 @@ const Home = () => {
                 </div>
                 <DisplaySearchResults businessList={businessList} onBusinessSelect={setSelectedBusiness} />
 
+            </div>
             </div>
         </>
     );
