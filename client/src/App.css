@@ -10,6 +10,8 @@
 
 .location .combobox-input {
   width: 100%;
+  opacity: 0.8;
+  border-radius: 7px;
 }
 
 .map-container {
@@ -136,10 +138,44 @@ transform: translateY(-5px);
   background-color: rgba(255, 255, 255, 0.900);
 }
 
+.edit-btn{
+  box-shadow: inset 0 0 0 0 #e17c94;
+  -webkit-transition: ease-out 1s;
+  -moz-transition: ease-out 1s;
+  transition: ease-out 1s;
+  border: 1px solid black !important;
+}
+
+.edit-btn:hover {
+  /* box-shadow: inset 400px 0 0 0 rgb(236,132,124); */
+  box-shadow: inset 0 100px 0 0 #df5535;
+  color: white !important;
+  border: 1px solid white !important;
+}
+
+.form-control{
+  opacity: 0.8;
+}
+
+.form-control:hover, .combobox-input:hover{
+  border: 1px solid black !important;
+  opacity: 1;
+  box-shadow:
+      0 0 0px #df5535,
+      0 0 1px #df5535,
+      0 0 2px #df5535,
+      0 0 3px #df5535,
+      0 0 4px #fff,
+      0 0 5px #fff,
+      0 0 6px #fff,
+      0 0 7px #fff;
+}
 
 
-
-
+.edit-headings{
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  letter-spacing: 3px;
+}
 
 
 

@@ -75,27 +75,27 @@ const EditProfile = () => {
         <div className="home-cover">
         <TopNav />
         <div className="container col-6 p-4 mb-5 mt-5 rounded edit-profile-container" id="main-content">
-            <h1>Edit Profile</h1>
+            <h1 class ="edit-headings">Edit Profile</h1>
 
             <Form onSubmit={saveProfile}>
-            <Form.Group className="mb-3" controlId="FirstName">
+            <Form.Group className="mb-3 fw-bold" controlId="FirstName">
                 <Form.Label>First Name</Form.Label>
                 <Form.Control type="text" value={inputFirstName}
                     onChange={(e) => setFirstName(e.target.value)} required />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="LastName">
+            <Form.Group className="mb-3 fw-bold" controlId="LastName">
                 <Form.Label>Last Name</Form.Label>
                 <Form.Control type="text" value={inputLastName}
                     onChange={(e) => setLastName(e.target.value)} required />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="userProfile">
+            <Form.Group className="mb-3 fw-bold" controlId="userProfile">
                 <Form.Label>Profile Image</Form.Label>
                 <Form.Control type="file" onChange={handleUserProfileChange} accept="image/*" />
             </Form.Group>
 
-            <Button variant="outline-light bg-success" type="submit">Save Profile</Button>
-            <Button variant="outline-light bg-danger" onClick={() => navigate(-1)} style={{marginLeft:"10px"}}>Cancel</Button>
+            <Button variant= "btn edit-btn fw-bold outline-light" type="submit">Save Profile</Button>
+            <Button variant="btn edit-btn fw-bold outline-light" onClick={() => navigate(-1)} style={{marginLeft:"10px"}}>Cancel</Button>
             </Form>
         </div>
         </div>
