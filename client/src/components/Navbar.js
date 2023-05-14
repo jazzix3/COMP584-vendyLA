@@ -36,7 +36,7 @@ function TopNav() {
     }, [authUser]);
 
     return (
-        <Navbar expand="sm" className="navbar-custom" style={{ position: "sticky"}}>
+        <Navbar expand="sm" className="navbar-custom" style={{ position: "sticky" }}>
 
             <Container>
                 <Link to="/">
@@ -48,8 +48,20 @@ function TopNav() {
                 </Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
-                        <Nav.Link as={Link} to="/about">About</Nav.Link>
+                    <Nav className="me-5 pt-2">
+                        <Nav.Link
+                            as={Link}
+                            to="/about"
+                            style={{
+                                color: 'white',
+                                fontSize: '20px'
+                            }}
+                            onMouseOver={e => e.target.style.color = '#ffbd59'}
+                            onMouseOut={e => e.target.style.color = 'white'}
+                        >
+                            About
+                        </Nav.Link>
+
                         {/* <Nav.Link as={Link} to="/reviews">Reviews</Nav.Link> */}
                     </Nav>
                     {authUser ? (

@@ -60,7 +60,7 @@ const Dashboard = () => {
         <>
         <div className="home-cover">
             <TopNav />
-            <div className="container mb-3 pt-3 dash-container" id="main-content" style={{ overflow: 'hidden' }}>
+            <div className="container mb-3 pt-3 dash-container" id="main-content" style={{ overflow: 'hidden', borderRadius: '10px', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.9)' }}>
                 <div className="image-placeholder" style={{ width: '200px', height: '200px' }}><img src={userProfile} style={{ width: "200px", height: "200px" }} alt="User Profile" /> </div>
                 <h1>Dashboard</h1>
                 <p>Welcome! This is where vendors can view their info.</p>

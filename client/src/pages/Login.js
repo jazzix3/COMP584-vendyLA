@@ -33,45 +33,45 @@ const Login = () => {
             <TopNav />
 
             <div class="background-container">
-            <div className="container col-6 p-5 rounded login-container">
-                {message && <div className="alert alert-success">{message}</div>}
-                {error && <Alert variant="danger">{error}</Alert>}
-                <h1 className="mb-3">Log In</h1>
-                <p>
-                    New User?<span> <Link to="/Signup">Sign up for an account</Link></span>
-                </p>
+                <div className="container col-6 p-5 rounded login-container">
+                    {message && <div className="alert alert-success">{message}</div>}
+                    {error && <Alert variant="danger">{error}</Alert>}
+                    <h1 className="mb-3">Log In</h1>
+                    <p style={{ fontSize: '16px', fontWeight: 'bold' }}>
+                        New User?<span> <Link to="/Signup">Sign up for an account</Link></span>
+                    </p>
 
-                <Form onSubmit={login}>
-                    <Form.Group className="mb-3" controlId="email">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control
-                            type="email"
-                            value={inputEmail}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                        />
-                    </Form.Group>
+                    <Form onSubmit={login}>
+                        <Form.Group className="mb-3" controlId="email">
+                            <Form.Label style={{ fontSize: '16px', fontWeight: 'bold' }}>Email address</Form.Label>
+                            <Form.Control
+                                type="email"
+                                value={inputEmail}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
+                        </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="password">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control
-                            type="password"
-                            value={inputPassword}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
-                    </Form.Group>
+                        <Form.Group className="mb-3" controlId="password">
+                            <Form.Label style={{ fontSize: '16px', fontWeight: 'bold' }}>Password</Form.Label>
+                            <Form.Control
+                                type="password"
+                                value={inputPassword}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+                        </Form.Group>
 
-                    <Button variant="primary" type="submit">
-                        Submit
-                    </Button>
-                </Form>
+                        <Button variant="primary" type="submit" style={{ fontSize: '16px', fontWeight: 'bold' }}>
+                            Submit
+                        </Button>
+                    </Form>
 
-                <div>
-                    <GoogleSignIn />
+                    <div>
+                        <GoogleSignIn />
+                    </div>
                 </div>
-            </div>
-        </div >
+            </div >
         </>
     );
 };
