@@ -37,8 +37,8 @@ const GoogleSignIn = () => {
         <>
             {/* button that handles the sign in  */}
             <div className="mt-4">
-                <Button variant="outline-secondary" onClick={handleGoogleSignIn}>
-                    <img src="https://img.icons8.com/color/16/000000/google-logo.png" className="me-2" alt="Google Logo" />
+                <Button variant="dark" onClick={handleGoogleSignIn} >
+                    <img src="https://img.icons8.com/color/16/000000/google-logo.png" className="me-2" alt="Google Logo"/>
                     Continue with Google
                 </Button>
             </div>
