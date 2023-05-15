@@ -114,7 +114,7 @@ const Signup = () => {
                     </Form.Group>
 
 
-                    <Button variant="primary" type="submit" style={{ fontSize: '16px', fontWeight: 'bold' }}>
+                    <Button variant="login-btn primary" type="submit" style={{ fontSize: '16px', fontWeight: 'bold' }}>
                         {loading ? (
                             <>
                             <Spinner animation="border" size="sm" /> Submitting...
