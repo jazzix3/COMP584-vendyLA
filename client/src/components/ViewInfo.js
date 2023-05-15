@@ -22,8 +22,8 @@ const ViewInfo = ({ selectedBusiness }) => {
       )}
 
       {selectedBusiness && (
-        <div>
-          <h2>{selectedBusiness.name}</h2>
+        <div className='about-card'>
+        <h2 className="edit-headings">{selectedBusiness.name}</h2>
           {/* Display additional information about the business */}
           <img
             src={
@@ -39,7 +39,7 @@ const ViewInfo = ({ selectedBusiness }) => {
               maxHeight: '200px',
             }}
           />
-          <p>
+          <p className="info-labels fw-bold">
             Location:{' '}
             {selectedBusiness.location.address ||
               `${selectedBusiness.location.address1 ? selectedBusiness.location.address1 + '\n' : ''}
@@ -50,11 +50,11 @@ const ViewInfo = ({ selectedBusiness }) => {
               ${selectedBusiness.location.zipcode || ''}`}
           </p>
 
-          {selectedBusiness.phone && <p>Phone: {selectedBusiness.phone}</p>}
-          <p></p>
+          {selectedBusiness.phone && <p className="fw-bold">Phone: {selectedBusiness.phone}</p>}
+          <p className="info-labels"></p>
           {selectedBusiness.url && (
             <p>
-              <a href={selectedBusiness.url} target="_blank">
+              <a href={selectedBusiness.url} target="_blank" className="info-labels">
                 View on Yelp
               </a>
             </p>
