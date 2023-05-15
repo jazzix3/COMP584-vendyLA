@@ -51,7 +51,7 @@ const About = () => {
                                         <p>However, there are still challenges facing street vendors in Los Angeles, including a lack of access to affordable permits and the threat of displacement due to gentrification and development. Despite these challenges, the street vendor culture in Los Angeles continues to thrive and remains an important part of the city's culinary and cultural landscape.</p>
                                     </Card.Text>
                                     <a href="https://lastreetvendors.org/" target="_blank" rel="noopener noreferrer">
-                                        <Button variant="primary">Learn More</Button>
+                                        <Button variant="login-btn primary">Learn More</Button>
                                     </a>
                                 </Card.Body>
                             </Card>
