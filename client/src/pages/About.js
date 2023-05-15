@@ -7,7 +7,7 @@ const About = () => {
 
     return (
         <>
-            <div className="home-cover">
+            <div className="home-cover pb-3">
 
                 <TopNav />
 
