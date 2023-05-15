@@ -36,7 +36,7 @@ const Home = () => {
 
             
 
-            <div className="container rounded p-2 main-content align-top" id="main-content">
+            <div className="container rounded p-2 main-content align-top mb-3" id="main-content">
                 
                 <div className="d-flex justify-content-center">
                     <Searchbar onSearch={handleSearchSubmit} />

@@ -58,9 +58,9 @@ const Dashboard = () => {
 
     return (
         <>
-        <div className="home-cover pb-2">
+        <div className="home-cover">
             <TopNav />
-            <div className="container pt-3 dash-container mb-3" id="main-content" style={{ overflow: 'hidden', borderRadius: '10px', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.9)' }}>
+            <div className="container mb-3 pt-3 dash-container" id="main-content" style={{ overflow: 'hidden', borderRadius: '10px', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.9)' }}>
                 <div className="image-placeholder" style={{ width: '200px', height: '200px' }}><img src={userProfile} style={{ width: "200px", height: "200px" }} alt="User Profile" /> </div>
                 <h1>Dashboard</h1>
                 <p className="greeting">Welcome back <strong>{firstName}</strong>! This is where vendors can view their info.</p>
@@ -78,7 +78,7 @@ const Dashboard = () => {
                             <use xlinkHref="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
                             <use xlinkHref="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
                             <use xlinkHref="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-                            <use xlinkHref="#gentle-wave" x="48" y="7" fill="lightblue" />
+                            <use xlinkHref="#gentle-wave" x="48" y="7" fill="#fff" />
                         </g>
                         </svg>
                     </div>
