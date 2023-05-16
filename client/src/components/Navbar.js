@@ -47,7 +47,7 @@ function TopNav() {
                     />
                 </Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav" style={{backgroundColor: "#feb555", padding:"10px"}}>
+                <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-5 pt-2">
                         <Nav.Link
                             as={Link}
@@ -66,7 +66,7 @@ function TopNav() {
                     </Nav>
                     {authUser ? (
                         <Nav className="ms-auto" style={{ display: "flex", alignItems: "center" }}>
-                            <Link to="/Dashboard" style={{ display: "flex", alignItems: "center", color: "#ffffff" }}>
+                            <Link to="/Dashboard" style={{ display: "flex", alignItems: "center", color: "#ffffff"}}>
                                 Logged in as {firstName} {lastName}
                                 <img
                                     src={userProfile}
