@@ -9,10 +9,19 @@ Street vendors are underrepresented within other Food/Merch reviewer application
 
 ### Demo Videos:
 
-[Demo 1](https://drive.google.com/file/d/1J9EknQYt1JJPBcGjcG5PDW-Gw0mcM1wT/view?usp=share_link) - Firebase login system and Google Map API implementation\
-[Demo 2](https://drive.google.com/file/d/1zzJ4JF1uydUBdL5cpSvwX0ApUMYf9v8n/view?usp=share_link) - Signup fetches user info and creates 'users' documents in Firestore database\
-[Demo 3](https://drive.google.com/file/d/136RWjmmE8_TFTrdrsVBujJdFICdb0Pbq/view?usp=share_link) - Functionality to add business information to database. Addresses use Places Autocomplete API. Geocoding marks location on dashboard Google map\
-[Demo 4](https://drive.google.com/file/d/17iZRUmcaE2OqChjXdZUFaCYYPVYC0faz/view?usp=share_link) - Implementation of the business search function. User enters city or zip and business results from Firestore database and Yelp API are displayed 
+- [Demo 1](https://drive.google.com/file/d/1J9EknQYt1JJPBcGjcG5PDW-Gw0mcM1wT/view?usp=share_link) : Firebase login system and Google Maps API implementation
+- [Demo 2](https://drive.google.com/file/d/1zzJ4JF1uydUBdL5cpSvwX0ApUMYf9v8n/view?usp=share_link) : Signup fetches user info and creates 'users' documents in Firestore database\
+- [Demo 3](https://drive.google.com/file/d/136RWjmmE8_TFTrdrsVBujJdFICdb0Pbq/view?usp=share_link) : Functionality to add business information to database. Addresses use Places Autocomplete API. Geocoding marks location on dashboard Google map\
+- [Demo 4](https://drive.google.com/file/d/17iZRUmcaE2OqChjXdZUFaCYYPVYC0faz/view?usp=share_link) : Implementation of the business search function. User enters city or zip and business results from Firestore database and Yelp API are displayed\
+- [Demo 5](https://drive.google.com/file/d/12MoGTkqm3QW2WbOScyccWx7b73lV_FdM/view?usp=share_link) : Search results redesigned using cards. Allows user to view more info about the business either by clicking link in card or clicking link on map.
+
+
+### Group Member Contributions:
+- Lissett: Powerpoint, Designed Login pages, Front-end work
+- Jasmine: Powerpoint, Google Maps Api,Yelp Api, Set up framework, back-end work
+- Margarita: Powerpoint, Designed about pages, back-end work
+- Mitchell: Powerpoint, Designed about pages, Front end work
+- Jorge: Powerpoint, Front end work, back-end work
 
 
 ### Requirements:
@@ -39,10 +48,6 @@ npm i use-places-autocomplete
 npm i axios
 npm i @reach/combobox --legacy-peer-deps // may need to remove; creates several issues and warnings
 ```
-<br /><br />
-Run server using `npm run dev`<br />
-Run client using `npm start`
-<br /><br />
 
 **$.env.local** file in main folder:
 ```
@@ -61,4 +66,7 @@ REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
 REACT_APP_FIREBASE_APP_ID=your_firebase_app_id
 ```
 
-
+<br /><br />
+Run server using `npm run dev`<br />
+Run client using `npm start`
+<br /><br />
