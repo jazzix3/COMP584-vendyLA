@@ -47,7 +47,7 @@ function TopNav() {
                     />
                 </Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
+                <Navbar.Collapse id="basic-navbar-nav" style={{backgroundColor: "#feb555", padding:"10px"}}>
                     <Nav className="me-5 pt-2">
                         <Nav.Link
                             as={Link}
