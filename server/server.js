@@ -26,6 +26,23 @@ app.get('/api/yelp', async (req, res) => {
   }
 });
 
+
+
+app.get('/api/latLng', async (req, res) => {
+  try {
+    const address = req.query.address;
+    const apiKey = 'AIzaSyDI03QBupHJvGDZCOalEGCNVtVjDRhoEAs';
+    const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${apiKey}`;
+
+    const response = await axios.get(url);
+    res.send(response.data);
+  }
+  catch (err) {
+    console.error(err);
+    res.status(500).send('Error fetching /api/latLng');
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
 });

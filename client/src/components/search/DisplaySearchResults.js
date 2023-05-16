@@ -26,7 +26,7 @@ const DisplaySearchResults = ({ businessList, onBusinessSelect }) => {
             >
               <div style={{
                 width: "100%",
-                backgroundColor: "#f1b04c",
+                backgroundColor: "#feb555",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center"
@@ -42,7 +42,7 @@ const DisplaySearchResults = ({ businessList, onBusinessSelect }) => {
                     objectFit: "contain"
                   }}
                 />
-                <div class="card-number">{index + 1}</div>
+                <div id="card-number">{index + 1}</div>
               </div>
 
               <Card.Body>

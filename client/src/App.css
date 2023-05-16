@@ -1,3 +1,5 @@
+
+
 #map-container{
   display: flex;
   justify-content: center;
@@ -14,10 +16,7 @@
   border-radius: 7px;
 }
 
-/* .map-container {
-  text-align: left;
-  margin: 30px;
-} */
+
 
 .row-equal-height {
   display: flex;
@@ -34,7 +33,7 @@ display: flex;
 }
 
 .about-card {
-  opacity: 0;
+  background-color:#ffffff;
   animation: fade-in 1.5s ease-in-out forwards;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
@@ -66,7 +65,7 @@ display: flex;
 }
 
 .dash-row{
-  background-color: lightblue;
+  background-color: #feb555;
   color: black;
 }
 
@@ -75,7 +74,7 @@ display: flex;
 }
 
 .dash-container{
-  background-color: black;
+  background-color: rgba(202, 72, 72, 0.4);
   color: white;
   min-width: 300px;
 }
@@ -113,7 +112,7 @@ display: flex;
 }
 
 
-.card-number {
+#card-number {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -150,12 +149,13 @@ display: flex;
 }
 
 .navbar-custom {
+  height: 65px;
   display: flex;
   align-items: center;
   top: 0;
   z-index: 100;
   box-shadow: 0 3px 4px rgba(255, 255, 255, 0.5);
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
 }
 
@@ -231,11 +231,13 @@ display: flex;
   position:relative;
   height:20vh;
   text-align:center;
-  background-color: black;
+  background-color: white;
 }
 
+
  .wave-box{
-  background-color: black;
+  background-color: rgba(202, 72, 72, 0.7);
+  color: white;
   padding: 0 !important;
   margin: 0 !important;
 } 

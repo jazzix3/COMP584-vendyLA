@@ -2,7 +2,7 @@ import React from 'react';
 import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 
 const libraries = ["places"];
-const containerStyle = { width: '100%', height: '250px' };
+const containerStyle = { width: '70%', height: '250px' };
 const options = {
     streetViewControl: false,
     fullscreenControl: false,

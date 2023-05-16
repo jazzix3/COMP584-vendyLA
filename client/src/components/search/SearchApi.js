@@ -21,7 +21,6 @@ export const SearchApi = async (location) => {
         const latLngResponse = await getLatLng(location);
         console.log("latLngResponse: " + JSON.stringify(latLngResponse));
         
-
         // return from SearchFirestore stored as objects in array
         const firestoreBusinesses = await SearchFirestore(latLngResponse);
 
@@ -36,13 +35,18 @@ export const SearchApi = async (location) => {
 };
 
     // uses Google API to convert city to lat lng coordinates
-export const getLatLng = async (address) => {
-    const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
-    const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${apiKey}`;
-    const response = await axios.get(url);
-    const latLng = response.data.results[0].geometry.location;
-    return latLng;
-};
+    export const getLatLng = async (location) => {
+        try{
+            // GET request to Google API to convert city/zip to coordinates
+            const response = await axios.get("/api/latLng", {
+                params: { address: location }
+            });
+    
+            const latLng = response.data.results[0].geometry.location; 
+            return latLng;
+        } catch (err) {
+            console.error('Error from the getLatLng function');
+    }};
 
 
 const SearchFirestore = async (latLng) => {

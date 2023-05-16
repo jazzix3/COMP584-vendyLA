@@ -66,7 +66,7 @@ function TopNav() {
                     </Nav>
                     {authUser ? (
                         <Nav className="ms-auto" style={{ display: "flex", alignItems: "center" }}>
-                            <Link to="/Dashboard" style={{ display: "flex", alignItems: "center" }}>
+                            <Link to="/Dashboard" style={{ display: "flex", alignItems: "center", color: "#ffffff" }}>
                                 Logged in as {firstName} {lastName}
                                 <img
                                     src={userProfile}
