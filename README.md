@@ -10,10 +10,12 @@ Street vendors are underrepresented within other Food/Merch reviewer application
 ### Demo Videos:
 
 - [Demo 1](https://drive.google.com/file/d/1J9EknQYt1JJPBcGjcG5PDW-Gw0mcM1wT/view?usp=share_link) : Firebase login system and Google Maps API implementation
-- [Demo 2](https://drive.google.com/file/d/1zzJ4JF1uydUBdL5cpSvwX0ApUMYf9v8n/view?usp=share_link) : Signup fetches user info and creates 'users' documents in Firestore database\
-- [Demo 3](https://drive.google.com/file/d/136RWjmmE8_TFTrdrsVBujJdFICdb0Pbq/view?usp=share_link) : Functionality to add business information to database. Addresses use Places Autocomplete API. Geocoding marks location on dashboard Google map\
-- [Demo 4](https://drive.google.com/file/d/17iZRUmcaE2OqChjXdZUFaCYYPVYC0faz/view?usp=share_link) : Implementation of the business search function. User enters city or zip and business results from Firestore database and Yelp API are displayed\
-- [Demo 5](https://drive.google.com/file/d/12MoGTkqm3QW2WbOScyccWx7b73lV_FdM/view?usp=share_link) : Search results redesigned using cards. Allows user to view more info about the business either by clicking link in card or clicking link on map.
+- [Demo 2](https://drive.google.com/file/d/1zzJ4JF1uydUBdL5cpSvwX0ApUMYf9v8n/view?usp=share_link) : Signup fetches user info and creates 'users' documents in Firestore database
+- [Demo 3](https://drive.google.com/file/d/136RWjmmE8_TFTrdrsVBujJdFICdb0Pbq/view?usp=share_link) : Functionality to add business information to database. Addresses use Places Autocomplete API. Geocoding marks location on dashboard Google map
+- [Demo 4](https://drive.google.com/file/d/17iZRUmcaE2OqChjXdZUFaCYYPVYC0faz/view?usp=share_link) : Implementation of the business search function. User enters city or zip and business results from Firestore database and Yelp API are displayed
+- [Demo 5](https://drive.google.com/file/d/12MoGTkqm3QW2WbOScyccWx7b73lV_FdM/view?usp=share_link) : Search results redesigned using cards. Allows user to view more info about the business either by clicking link in card or clicking link on map
+- [Final Presentation Part 1](https://drive.google.com/file/d/1co9dLp2qbDhdy162DEw63WDDaj-JL44f/view?usp=share_link) : Demo of fully functional website with styling
+- [Final Presentation Part 2](https://drive.google.com/file/d/1FHTWcMj96iyjp7bSpNgAbDdUTLkxeCvB/view?usp=share_link) : Demo of code explaination
 
 
 ### Group Member Contributions:
@@ -35,6 +37,7 @@ server:
 npm i express
 npm i nodemon -D
 npm i axios
+npm i cors
 ```
 client:
 ```
