@@ -7,7 +7,7 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 export const SearchApi = async (location) => {
     try {
         // GET request to yelp api through server.js
-        const response = await axios.get("/api/yelp", {
+        const response = await axios.get("https://vendyla-back.onrender.com/api/yelp", {
         params: {
             location: location,
             categories: "streetvendors",
@@ -38,7 +38,7 @@ export const SearchApi = async (location) => {
     export const getLatLng = async (location) => {
         try{
             // GET request to Google API to convert city/zip to coordinates
-            const response = await axios.get("/api/latLng", {
+            const response = await axios.get("https://vendyla-back.onrender.com/api/latLng", {
                 params: { address: location }
             });
     
