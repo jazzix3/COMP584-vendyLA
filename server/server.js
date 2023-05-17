@@ -28,7 +28,7 @@ app.get('/api/yelp', async (req, res) => {
 
 
 
-app.get('/api/latLng', async (req, res) => {
+app.get('https://vendyla-back.onrender.com/api/latLng', async (req, res) => {
   try {
     const address = req.query.address;
     const apiKey = 'AIzaSyDI03QBupHJvGDZCOalEGCNVtVjDRhoEAs';
