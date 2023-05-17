@@ -3,7 +3,7 @@ const axios = require('axios');
 const app = express();
 const port = 4000;
 
-app.get('/api/yelp', async (req, res) => {
+app.get('https://vendyla-back.onrender.com/api/yelp', async (req, res) => {
   try {
     const url = 'https://api.yelp.com/v3/businesses/search';
     const apiKey = 'a6JQ3nyVjD9QvYXC8AfPBtDTYDunhAO9dKRwF7ATjP3Mp4nIVttpHgaJeOXZnZBvZZFq6QxCNc_UT6z3xjDlAEi97XQJaoLRjOxrPbDt3Ha8IfPCCB5OrXP7NrtRZHYx';
@@ -39,7 +39,7 @@ app.get('https://vendyla-back.onrender.com/api/latLng', async (req, res) => {
   }
   catch (err) {
     console.error(err);
-    res.status(500).send('Error fetching /api/latLng');
+    res.status(500).send('Error fetching https://vendyla-back.onrender.com/api/latLng');
   }
 });
 
